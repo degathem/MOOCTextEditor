@@ -1,29 +1,28 @@
 # MOOCTextEditor
 Text editor project for Data Structures and Algorithms Course UCSD
 
-/-------------------------------------------------------------------------
-/ Starter Code and GUI Application for Course 2 in the
-/ Java Programming: Object Oriented Design of 
-/ Data Structures Specialization:
-/
-/ Data structures: Measuring and Optimizing Performance
-/ https://www.coursera.org/learn/data-structures-optimizing-performance
-/
-/ Authored by UCSD MOOC Team:
-/ Mia Minnes, Christine Alvarado, Leo Porter, Alec Brickman
-/ and Adam Setters
-/
-/ Date: 10/29/2015
-/-------------------------------------------------------------------------
+Starter Code and GUI Application for Course 2 in the
+Java Programming: Object Oriented Design of 
+Data Structures Specialization:
 
----------------------------------------------------------[ DESCRIPTION ]--
+[Data structures: Measuring and Optimizing Performance]
+(https://www.coursera.org/learn/data-structures-optimizing-performance)
+
+Authored by UCSD MOOC Team:
+Mia Minnes, Christine Alvarado, Leo Porter, Alec Brickman
+and Adam Setters
+
+Date: 10/29/2015
+
+
+# DESCRIPTION
 
 The files provided are skeleton code, as well as grading previews and 
 testing files to be used in completing the course programming 
 assignments. Additionally, you are provided a runnable JavaFX program 
 which will help to test and demonstrate your implementations.
 
--------------------------------------------------------[ FILES BY WEEK ]--
+# FILES BY WEEK
 
 Below are the files introduced in each week and used in each week
 of the course. See file for description...
@@ -58,7 +57,7 @@ spelling.WordPath.java
 spelling.NearbyWords.java
 spelling.WPTree.java
 
----------------------------------------------------------------[ SETUP ]-- 
+# SETUP
 
 Importing Project into eclipse:
     1. Create a new Java Project in your workspace
@@ -69,7 +68,7 @@ Importing Project into eclipse:
 Feel free to use another IDE or manually compile and run your programs.
 If you need help, google is your friend.
 
------------------------------------------------------[ ACKNOWLEDGEMENTS]--
+# ACKNOWLEDGEMENTS
 
 A big thank you to Tomas Mikula for creating RichTextFX 
 which was used as the text area in the GUI application.
