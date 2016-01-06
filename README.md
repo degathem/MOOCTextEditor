@@ -22,15 +22,30 @@ testing files to be used in completing the course programming
 assignments. Additionally, you are provided a runnable JavaFX program 
 which will help to test and demonstrate your implementations.
 
-# FILES BY WEEK
+# FILES AND OUTCOMES BY WEEK
 
-Below are the files introduced in each week and used in each week
+Below are the files and outcomes introduced in each week and used in each week
 of the course. See file for description...
 
 Week 1 : Introduction and Working with Strings
 ==============================================
 document.Document.java
 document.BasicDocument.java
+
+Describe how the Flesch Readability Score can be used to determine the readability of text
+	- Quantify how readable a piece of text is
+	- High score when short sentences and short sentences, with less syllables per word
+Describe how Strings are represented in Java
+	- strings are objects, actually they are an array of characters (char primitive type)
+	- strings are immutable, no way to change a string in memory
+	- java has a mechanism to deal with strings in memory to save memory, i.e. if strings are immutable they could take up lot of heap space ... interned string object, similar strings will reference the same object in memory
+Perform basic operations with Strings in Java
+	
+Work with the String class's built-in methods to manipulate Strings
+- String.equals() will return true if content of string is equal i.e. all of the characters are the same. It won't (false) if you use == because this compare objects, even if the strings have the same characters two differnt objects are holding those 
+Write regular expressions to match String patterns
+Use regular expressions to split strings
+
 
 Week 2 : Efficiency Analysis and Benchmarking
 =============================================
