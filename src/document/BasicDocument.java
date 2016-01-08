@@ -30,7 +30,8 @@ public class BasicDocument extends Document
 	{
 		//TODO: Implement this method.  See the Module 1 support videos 
 	    // if you need help.
-	    return 0;
+		List<String> words = this.getTokens("[A-Za-z]+");
+	    return words.size();
 	}
 	
 	/**
@@ -46,7 +47,8 @@ public class BasicDocument extends Document
 	{
 	    //TODO: Implement this method.  See the Module 1 support videos 
         // if you need help.
-        return 0;
+		List<String> tokens = this.getTokens("[^.!?]+");
+        return tokens.size();
 	}
 	
 	/**
@@ -62,7 +64,14 @@ public class BasicDocument extends Document
 	{
 	    //TODO: Implement this method.  See the Module 1 support videos 
         // if you need help.
-        return 0;
+		int wordcount = 0;
+		List<String> words = getTokens("[A-Za-z]+");
+		System.out.println(words);
+		for (String w : words){
+			wordcount = wordcount + countSyllables(w);
+			System.out.println(w + " " + countSyllables(w));
+		}
+        return wordcount;
 	}
 	
 	

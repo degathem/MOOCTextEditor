@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.Arrays;
 
 public abstract class Document {
 
@@ -53,7 +54,36 @@ public abstract class Document {
 		// TODO: Implement this method so that you can call it from the 
 	    // getNumSyllables method in BasicDocument (module 1) and 
 	    // EfficientDocument (module 2).
-	    return 0;
+		//System.out.println(this.getTokens("[aeiouy]+"));
+	    word = word.toLowerCase();
+		char[] vowels = {'a', 'e' , 'i', 'o', 'u', 'y'};
+		char[] characterArray = word.toCharArray();
+	    char[] characterArrayEndE;
+		boolean lastvowel = false;
+		int syllableCount = 0;
+	    
+		
+		if (word.charAt(word.length() - 1) == 'e') {
+	    	
+	    	characterArrayEndE = Arrays.copyOf(characterArray, characterArray.length - 1);
+	    	for (char letter: characterArrayEndE) {
+	    		if (Arrays.binarySearch(vowels, letter) >= 0){
+	    			characterArray = characterArrayEndE;
+	    		}
+	    	}
+	    }
+		
+		for (int i = 0; i < characterArray.length; i++) {
+	    	if (Arrays.binarySearch(vowels, characterArray[i]) >= 0 && !lastvowel){
+	    		syllableCount++;
+	    		lastvowel = true;
+	    	} else if (Arrays.binarySearch(vowels, characterArray[i]) >= 0 && lastvowel){
+	    		lastvowel = true;
+	    	} else {
+	    		lastvowel = false;
+	    	}
+	    }
+		return syllableCount;
 	}
 	
 	/** A method for testing
