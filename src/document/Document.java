@@ -147,7 +147,7 @@ public abstract class Document {
 	public double getFleschScore()
 	{
 	    // TODO: Implement this method
-		double flesch = 206.835 - (1.015 * (getNumWords() / getNumSentences())) - (84.6 * (getNumSyllables() / getNumWords()));
+		double flesch = 206.835 - 1.015 * getNumWords() / getNumSentences() - 84.6 * getNumSyllables() / getNumWords();
 	    return flesch;
 	}
 	
