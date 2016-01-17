@@ -79,6 +79,9 @@ State and justify the asymptotic performance for linear search,binary search, se
 - selection sort, basically find smallest element in positions i to length-1, swap it with element in position i. best and worst case (O)n^2
 - insertion sort, basically swap successive pairs to put value in position i in correct location relative to earlier values, best (O)n (when array is already sorted), worst (O)n^2
 Describe the merge sort algorithm
+- uses recursion
+- if list has one element, return. Divide list in half. Sort first half. Sort Second half. Merge sorted lists.
+- 
 Explain the use of recursion in merge sort
 Use asymptotic analysis to compare merge sort with selection sort and with insertion sort
 State the best, worst, and average case performance for insertion sort, selection sort, merge sort, and quick sort
