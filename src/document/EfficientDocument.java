@@ -50,12 +50,12 @@ public class EfficientDocument extends Document {
 		for (String token: tokens){
 			
 			if (isWord(token)) {
-				System.out.println(token + " is a word");
+				//System.out.println(token + " is a word");
 				numWords++;
 				numSyllables = numSyllables + countSyllables(token);
 				
 			} else {
-				System.out.println(token + " is not a word");
+				//System.out.println(token + " is not a word");
 				numSentences++;
 			}
 		}
