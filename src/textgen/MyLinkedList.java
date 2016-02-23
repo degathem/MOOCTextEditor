@@ -17,6 +17,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	/** Create a new empty LinkedList */
 	public MyLinkedList() {
 		// TODO: Implement this method
+		size = 0;
 	}
 
 	/**
@@ -26,6 +27,12 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	public boolean add(E element ) 
 	{
 		// TODO: Implement this method
+		LLNode <E> nodeToAdd = new LLNode<E>(element);
+		tail.prev.next = nodeToAdd;
+		tail.prev = nodeToAdd;
+		nodeToAdd.next = tail;
+		
+		size++;
 		return false;
 	}
 
@@ -34,7 +41,14 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	public E get(int index) 
 	{
 		// TODO: Implement this method.
-		return null;
+		if (index > size - 1 || index < 0){
+			throw new IndexOutOfBoundsException("");
+		}
+		LLNode<E> currentNode = head;
+		for (int i = 0; i < index; i++){
+			currentNode = currentNode.next;
+		}
+		return currentNode.data;
 	}
 
 	/**
@@ -51,8 +65,8 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	/** Return the size of the list */
 	public int size() 
 	{
-		// TODO: Implement this method
-		return -1;
+		// TODO: Implement this method - while next != tail
+		return size;
 	}
 
 	/** Remove a node at the specified index and return its data element.
@@ -64,6 +78,11 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	public E remove(int index) 
 	{
 		// TODO: Implement this method
+		if (size == 0){
+			throw new IndexOutOfBoundsException("Cannot remove from empty linked list"); 
+		}
+		
+		size--;
 		return null;
 	}
 
