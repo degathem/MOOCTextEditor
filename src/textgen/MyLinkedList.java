@@ -17,6 +17,10 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	/** Create a new empty LinkedList */
 	public MyLinkedList() {
 		// TODO: Implement this method
+		head = new LLNode<E>(null);
+		tail = new LLNode<E>(null);
+		head.next = tail;
+		tail.prev = head;
 		size = 0;
 	}
 
@@ -45,7 +49,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 			throw new IndexOutOfBoundsException("");
 		}
 		LLNode<E> currentNode = head;
-		for (int i = 0; i < index; i++){
+		for (int i = -1; i < index; i++){
 			currentNode = currentNode.next;
 		}
 		return currentNode.data;
@@ -59,6 +63,10 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	public void add(int index, E element ) 
 	{
 		// TODO: Implement this method
+		if (index > size - 1 || index < 0){
+			throw new IndexOutOfBoundsException("");
+		}
+		
 	}
 
 
@@ -66,6 +74,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	public int size() 
 	{
 		// TODO: Implement this method - while next != tail
+		
 		return size;
 	}
 
@@ -96,6 +105,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	public E set(int index, E element) 
 	{
 		// TODO: Implement this method
+		
 		return null;
 	}   
 }

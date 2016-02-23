@@ -124,7 +124,9 @@ public class MyLinkedListTester {
 	public void testAddEnd()
 	{
         // TODO: implement this test
-		
+		shortList.add("C");
+		assertEquals("Check add method","C",shortList.get(2));
+			
 	}
 
 	
