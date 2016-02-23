@@ -83,6 +83,7 @@ Describe the merge sort algorithm
 - if list has one element, return. Divide list in half. Sort first half. Sort Second half. Merge sorted lists.
 - 
 Explain the use of recursion in merge sort
+- The method calls itself wow
 Use asymptotic analysis to compare merge sort with selection sort and with insertion sort
 State the best, worst, and average case performance for insertion sort, selection sort, merge sort, and quick sort
 Evaluate situations in which different sorting algorithms are appropriate
@@ -98,6 +99,37 @@ Use runtimes from a real system to reason about performance
 textgen.MyLinkedList*.java
 textgen.MarkovTextGenerator.java
 textgen.MarkovTextGenerator*.java
+
+###Explain the idea of abstraction and why it is important
+	- hiding irrelevant details to focus on the essential features needed to understand and use a thing the key to implementing large scale software system
+###Give an example of abstraction in the real world and in Java
+	- how do car brakes work? Push the brake pedal and the car stops as a driver do not need to know how the brakes work
+	- Abstraction barrier: sets the rules of interaction i.e. knowing how the brakes work (implementation specified) vs. knowing how to use the brake pedal (behaviour specified). User of libraries vs Library Developer
+	- Data abstraction: not important to understand how the data is organized if you are user of the data, care about how to interact with the data
+	- in Java Interface List -> ArrayList
+	- in Java more specifically
+###Describe the difference between an Abstract Data Type (ADT) and a Data Structure
+	- ADT has no implementation and manifest as interfaces and abstract classes in java
+	- data structure is a specific implementation of an ADT i.e. List (ADT) to ArrayList (data structure)
+###Describe and draw the structure of a LinkedList
+	- comprised of a series of nodes
+		- each node points to the previous and next node in the list
+	- there is also a class which tracks the head and tail of the list
+	- one implementation has sentinal nodes which exist only before the first node and after the last node, they only refer back to the first and last nodes
+###Describe an advantage of a LinkedList over an ArrayList
+	- linked list is higher performance for inserting into the list, arraylist is higher performance for accessing elements of the list
+###Implement Generic classes in Java
+	-<E> a type parameter, accept a type when a parameter is created
+###Throw Exceptions to indicate errors
+###Implement a doubly linked list with sentinel nodes in Java
+###Explain the value of having confidence in your code
+###Identify ways to build confidence in code correctness
+Describe different testing practices
+Compare advantages in testing methodologies
+Write tests for a LinkedList
+Explain how Markov processes can be used to generate text
+Distinguish between training on text and generating text
+
 
 ## Week 4 : Trees! (including Binary Search Trees and Tries)
 spelling.SpellingSuggest.java
