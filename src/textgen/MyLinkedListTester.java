@@ -126,7 +126,9 @@ public class MyLinkedListTester {
         // TODO: implement this test
 		shortList.add("C");
 		assertEquals("Check add method","C",shortList.get(2));
-			
+		
+		
+		
 	}
 
 	
@@ -135,6 +137,7 @@ public class MyLinkedListTester {
 	public void testSize()
 	{
 		// TODO: implement this test
+		assertSame("",3,list1.size());
 	}
 
 	
@@ -147,7 +150,14 @@ public class MyLinkedListTester {
 	public void testAddAtIndex()
 	{
         // TODO: implement this test
+		emptyList.add(0);
 		
+		assertSame("Check add method",0,emptyList.get(0));
+		
+		emptyList.add(1);
+		emptyList.add(2);
+		emptyList.add(1, 6);
+		assertSame("Check add method",6,emptyList.get(1));
 	}
 	
 	/** Test setting an element in the list */
