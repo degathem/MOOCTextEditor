@@ -165,6 +165,9 @@ public class MyLinkedListTester {
 	public void testSet()
 	{
 	    // TODO: implement this test
+		int removed = list1.set(0, 50);
+		assertSame("check set method",65, removed);
+		assertSame("check set method",50,list1.get(0));
 	    
 	}
 	
