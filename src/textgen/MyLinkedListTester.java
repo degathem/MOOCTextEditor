@@ -80,6 +80,14 @@ public class MyLinkedListTester {
 		catch (IndexOutOfBoundsException e) {
 		
 		}
+		
+		try {
+			shortList.get(50);
+			fail("Check out of bounds");
+		}
+		catch (IndexOutOfBoundsException e) {
+		
+		}
 		// test longer list contents
 		for(int i = 0; i<LONG_LIST_LENGTH; i++ ) {
 			assertEquals("Check "+i+ " element", (Integer)i, longerList.get(i));
@@ -120,7 +128,13 @@ public class MyLinkedListTester {
 		} catch (IndexOutOfBoundsException e){
 			
 		}
-		// TODO: Add more tests here
+		
+		try{
+			longerList.remove(666);
+			fail("Check index");
+		} catch (IndexOutOfBoundsException e) {
+			
+		}
 	}
 	
 	/** Test adding an element into the end of the list, specifically
@@ -139,6 +153,8 @@ public class MyLinkedListTester {
 		} catch (NullPointerException e) {
 			
 		}
+		
+		
 		
 		
 	}
@@ -182,6 +198,13 @@ public class MyLinkedListTester {
 		} catch (IndexOutOfBoundsException e) {
 			
 		}
+		
+		try{
+			longerList.add(-3,77);
+			fail("Check add negative");
+		} catch (IndexOutOfBoundsException e) {
+			
+		}
 	}
 	
 	/** Test setting an element in the list */
@@ -193,9 +216,16 @@ public class MyLinkedListTester {
 		assertSame("check set method",65, removed);
 		assertSame("check set method",50,list1.get(0));
 		try{
-			longerList.add(null);
+			longerList.set(1,null);
 			fail("Check null");
 		} catch (NullPointerException e) {
+			
+		}
+		
+		try{
+			longerList.set(666,5);
+			fail("Check index");
+		} catch (IndexOutOfBoundsException e) {
 			
 		}
 	}

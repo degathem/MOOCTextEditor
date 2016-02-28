@@ -73,7 +73,8 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		if ((index != 0 && index > size - 1) || index < 0){
 			
 			throw new IndexOutOfBoundsException("");
-		} else if (element == null) { 
+		} 
+		if (element == null) { 
 			throw new NullPointerException("");
 		}
 		LLNode<E> currentNode = head;
