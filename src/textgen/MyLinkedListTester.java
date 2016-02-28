@@ -114,6 +114,12 @@ public class MyLinkedListTester {
 		assertEquals("Remove: check element 0 is correct ", (Integer)21, list1.get(0));
 		assertEquals("Remove: check size is correct ", 2, list1.size());
 		
+		try {
+			longerList.remove(-1);
+			fail("Check remove");
+		} catch (IndexOutOfBoundsException e){
+			
+		}
 		// TODO: Add more tests here
 	}
 	
@@ -127,6 +133,12 @@ public class MyLinkedListTester {
 		shortList.add("C");
 		assertEquals("Check add method","C",shortList.get(2));
 		
+		try{
+			longerList.add(null);
+			fail("Check null");
+		} catch (NullPointerException e) {
+			
+		}
 		
 		
 	}
@@ -137,7 +149,12 @@ public class MyLinkedListTester {
 	public void testSize()
 	{
 		// TODO: implement this test
-		assertSame("",3,list1.size());
+		assertSame("Check size method",3,list1.size());
+		
+		list1.add(2);
+		list1.add(4);
+		
+		assertSame("Check size method",5, list1.size());
 	}
 
 	
@@ -158,6 +175,13 @@ public class MyLinkedListTester {
 		emptyList.add(2);
 		emptyList.add(1, 6);
 		assertSame("Check add method",6,emptyList.get(1));
+		
+		try {
+			list1.add(113, 44);
+			fail("Check add at element out of bounds");
+		} catch (IndexOutOfBoundsException e) {
+			
+		}
 	}
 	
 	/** Test setting an element in the list */
@@ -168,7 +192,12 @@ public class MyLinkedListTester {
 		int removed = list1.set(0, 50);
 		assertSame("check set method",65, removed);
 		assertSame("check set method",50,list1.get(0));
-	    
+		try{
+			longerList.add(null);
+			fail("Check null");
+		} catch (NullPointerException e) {
+			
+		}
 	}
 	
 	
