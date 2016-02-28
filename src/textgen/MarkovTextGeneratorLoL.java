@@ -33,6 +33,35 @@ public class MarkovTextGeneratorLoL implements MarkovTextGenerator {
 	public void train(String sourceText)
 	{
 		// TODO: Implement this method
+		wordList.clear();
+		String[] wordArray = sourceText.split("[ ]+");
+		starter = wordArray[0];
+		String prevWord = starter;
+		wordList.add(new ListNode(starter));
+		boolean newWord;
+		
+		for (int w = 1; w < wordArray.length; w++){
+			newWord = true;
+			for (ListNode word: wordList){
+				if (prevWord.equals(word.getWord())){
+					word.addNextWord(wordArray[w]);
+					newWord = false;
+					break;
+				}
+			}
+			if (newWord) {
+				ListNode newNode = new ListNode(prevWord);
+				newNode.addNextWord(wordArray[w]);
+				wordList.add(newNode);
+			}
+				
+			
+			prevWord = wordArray[w];
+		}
+		
+		
+		wordList.get(wordList.size() - 1).addNextWord(starter);
+	
 	}
 	
 	/** 
@@ -41,7 +70,29 @@ public class MarkovTextGeneratorLoL implements MarkovTextGenerator {
 	@Override
 	public String generateText(int numWords) {
 	    // TODO: Implement this method
-		return null;
+		String currWord = starter;
+		
+		String output = "";
+		String randomWord = "";
+		output = output + currWord;
+		int retrievedWords = 0;
+		while (retrievedWords < numWords) {
+			for (ListNode word: wordList){
+				if (currWord.equals(word.getWord())){
+					System.out.println("before");
+
+					randomWord = word.getRandomNextWord(rnGenerator);
+					System.out.println("after");
+
+					output = output + " " + randomWord;
+					currWord = randomWord;
+					retrievedWords++;
+					System.out.println(retrievedWords);
+				}
+			}
+		}
+		System.out.println("generate done");
+		return output;
 	}
 	
 	
@@ -62,6 +113,7 @@ public class MarkovTextGeneratorLoL implements MarkovTextGenerator {
 	public void retrain(String sourceText)
 	{
 		// TODO: Implement this method.
+		this.train(sourceText);
 	}
 	
 	// TODO: Add any private helper methods you need here.
@@ -144,7 +196,15 @@ class ListNode
 		// TODO: Implement this method
 	    // The random number generator should be passed from 
 	    // the MarkovTextGeneratorLoL class
-	    return null;
+	    int randInt = generator.nextInt(nextWords.size());
+		
+		if (randInt <= 1){
+			randInt = 0;
+		} else {
+			randInt = randInt - 1;
+		}
+			
+		return nextWords.get(randInt);
 	}
 
 	public String toString()
