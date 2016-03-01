@@ -83,7 +83,7 @@ Describe the merge sort algorithm
 - if list has one element, return. Divide list in half. Sort first half. Sort Second half. Merge sorted lists.
 - 
 Explain the use of recursion in merge sort
-- The method calls itself wow
+- The method calls itself... wow
 Use asymptotic analysis to compare merge sort with selection sort and with insertion sort
 State the best, worst, and average case performance for insertion sort, selection sort, merge sort, and quick sort
 Evaluate situations in which different sorting algorithms are appropriate
@@ -132,6 +132,49 @@ Distinguish between training on text and generating text
 
 
 ## Week 4 : Trees! (including Binary Search Trees and Tries)
+###Describe the value of trees
+	they are a dynamic data structure, easy to add and remove nodes
+	the structure convey's information
+###Describe a Tree Data Structure
+	Parents and children
+	Root node has no parents
+	Leaf nodes have no children
+	Single root
+	each node can have only one parent
+	no cycles, i.e. no loops
+	can a single node be a tree - yes, just a root
+###Author a TreeNode class
+	trees hava a linked structure like linked list
+	a tree just needs a root node
+	for a binary tree nod each node needs 1. a value, 2. a parent, 3. left child, 4. right child
+public class BinaryTree<E> {
+	TreeNode<E> root;
+	// etc..
+}
+###Explain the need to visit data in different orderings
+	make choices based on the need of data structure, e.g. social network connectivity - breadth first, maze - will go on until hitting a dead end then turn around
+###Perform and author a preorder traversal
+	traversal, if I need to find something in the tree, how do I find it
+	preorder traversal - visit yourself, then visit all you left subtree, then visit all your right subtree
+	recusion!
+###Perform in-order, post-order and level-order traversals
+	post order - depth first visit all your left subtree, visit all your right subtree, visit yourself
+	in order traversal - depth first visiit all your left subtree, visit yourself, visit all your right subtree
+	level order traversal - breadth first - keep a list adding and removing from the start
+###Define a Binary Search Tree
+	a binary tree restricts any parent to have at most 2 children
+	A BST must 1. be a binary tree, 2. Left subtrees are less than parent, 3. Right subtrees are greater than parent
+###Identify valid Binary Search Trees
+###Perform Search in a Binary Search Tree
+###Insert an item into a Binary Search Tree
+###Delete an item from a Binary Search Tree
+###Explain the running time performance to find an item in a BST
+###Compare the performance of linked lists and BSTs
+###Explain what a trie data structure is
+###Describe the algorithm for finding keys in and adding keys to a trie
+###Compare the time to find a key in a BST to a trie
+#Implement a trie data structure in Java
+
 spelling.SpellingSuggest.java
 spelling.AutoComplete.java
 spelling.Dictionary.java
@@ -161,5 +204,4 @@ If you need help, google is your friend.
 A big thank you to Tomas Mikula for creating RichTextFX 
 which was used as the text area in the GUI application.
 (Link: https://github.com/TomasMikula/RichTextFX)
-
 
