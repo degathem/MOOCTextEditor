@@ -147,10 +147,12 @@ Distinguish between training on text and generating text
 	trees hava a linked structure like linked list
 	a tree just needs a root node
 	for a binary tree nod each node needs 1. a value, 2. a parent, 3. left child, 4. right child
+'''Java
 public class BinaryTree<E> {
 	TreeNode<E> root;
 	// etc..
 }
+'''
 ###Explain the need to visit data in different orderings
 	make choices based on the need of data structure, e.g. social network connectivity - breadth first, maze - will go on until hitting a dead end then turn around
 ###Perform and author a preorder traversal
@@ -164,8 +166,10 @@ public class BinaryTree<E> {
 ###Define a Binary Search Tree
 	a binary tree restricts any parent to have at most 2 children
 	A BST must 1. be a binary tree, 2. Left subtrees are less than parent, 3. Right subtrees are greater than parent
+	Binary search review: list is sorted, check middle element, if search is greater eliminate higher half of list, check  middle of new list etc...
 ###Identify valid Binary Search Trees
 ###Perform Search in a Binary Search Tree
+	
 ###Insert an item into a Binary Search Tree
 ###Delete an item from a Binary Search Tree
 ###Explain the running time performance to find an item in a BST
