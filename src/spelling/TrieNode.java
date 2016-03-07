@@ -81,6 +81,10 @@ class TrieNode {
 	{
 		return children.keySet();
 	}
+	
+	public void setText(String text){
+		this.text = text;
+	}
 
 }
 

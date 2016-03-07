@@ -2,6 +2,7 @@ package spelling;
 
 import java.util.List;
 import java.util.Set;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -29,7 +30,30 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 	public boolean addWord(String word)
 	{
 	    //TODO: Implement this method.
-	    return false;
+		String lowerCaseWord = word.toLowerCase();
+		char[] charArray = lowerCaseWord.toCharArray();
+		TrieNode currTrieNode = root;
+		
+		for (char letter: charArray){
+			TrieNode child = currTrieNode.getChild(letter);
+			if (child != null){
+				currTrieNode = child;
+			} else {
+				currTrieNode = currTrieNode.insert(letter);
+			}
+		}
+		
+		
+		
+		if (currTrieNode.endsWord()){
+			return false;
+		} else {
+			currTrieNode.setEndsWord(true);
+			size++;
+			return true;
+		}
+		
+	
 	}
 	
 	/** 
@@ -39,7 +63,7 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 	public int size()
 	{
 	    //TODO: Implement this method
-	    return 0;
+	    return size;
 	}
 	
 	
@@ -47,8 +71,30 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 	@Override
 	public boolean isWord(String s) 
 	{
-	    // TODO: Implement this method
-		return false;
+		String lowerCaseWord = s.toLowerCase();
+		if (lowerCaseWord.isEmpty()){
+			return false;
+		}
+		char[] charArray = lowerCaseWord.toCharArray();
+		TrieNode currTrieNode = root;
+		
+		for (char letter: charArray){
+			TrieNode child = currTrieNode.getChild(letter);
+			if (child == null){
+				return false;
+			} else if (currTrieNode.getText().equals(lowerCaseWord)) {
+				return true;
+			} else {
+				currTrieNode = child;
+				
+			}
+		}
+		if (currTrieNode.getText().equals(lowerCaseWord)) {
+			return true;
+		} else {
+			return false;
+		}
+		//return false;
 	}
 
 	/** 
@@ -75,8 +121,59 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
     	 //       If it is a word, add it to the completions list
     	 //       Add all of its child nodes to the back of the queue
     	 // Return the list of completions
+    	String lowerCaseWord = prefix.toLowerCase();
+	
+		char[] charArray = lowerCaseWord.toCharArray();
+		TrieNode currTrieNode = root;
+		TrieNode stem = null;
+		List<String> completions = new ArrayList<String>();
+		LinkedList<TrieNode> queue = new LinkedList<TrieNode>();
+		
+		
+		if (prefix.isEmpty()){
+			stem = root;
+			
+		} else {
+			
+			for (char letter: charArray){
+				TrieNode child = currTrieNode.getChild(letter);
+				System.out.println(currTrieNode.getText());
+				if(child == null){
+					return completions;
+				}
+				else if (child.getText().equals(lowerCaseWord)) {
+					stem = child;
+					System.out.println("yo");
+					break;
+				} else {
+					
+					currTrieNode = child;
+					
+					System.out.println("yo else");
+					
+				}
+			}
+		}
+		this.printNode(stem);
+		if (stem == null){
+			return completions;
+		}
+		queue.add(stem);
+		
+		while (!queue.isEmpty() && completions.size() < numCompletions) {
+			TrieNode firstNode = queue.removeFirst();
+			
+			if (firstNode.endsWord()){
+				completions.add(firstNode.getText());
+				
+			}
+			for (char nextChar : firstNode.getValidNextCharacters()){
+				queue.addLast(firstNode.getChild(nextChar));
+			}
+		}
     	 
-         return null;
+    	 
+		return completions;
      }
 
  	// For debugging

@@ -169,15 +169,30 @@ public class BinaryTree<E> {
 	Binary search review: list is sorted, check middle element, if search is greater eliminate higher half of list, check  middle of new list etc...
 ###Identify valid Binary Search Trees
 ###Perform Search in a Binary Search Tree
-	
+	Use recursion
+	check left or right until there are no nodes left
+	could also use iteration
 ###Insert an item into a Binary Search Tree
+	walk through the nodes, check left and right until it fits the node
 ###Delete an item from a Binary Search Tree
+	find smallest element in right subtree
+	replace deleted element with the smallest right subtree value
+	delete smallest element that was just switched
 ###Explain the running time performance to find an item in a BST
 ###Compare the performance of linked lists and BSTs
+	height of the tree will affect performance
+	create a Balanced BST
+	|Left tree - Right Tree| <=1
+	Height around log(n)
+	make tree as bushy as possible
 ###Explain what a trie data structure is
+	bst doesn't take advantage of shared structure e.g. east eat ear
+	reTRIEval
 ###Describe the algorithm for finding keys in and adding keys to a trie
+	follow the linked letter nodes to the word required
 ###Compare the time to find a key in a BST to a trie
-#Implement a trie data structure in Java
+	depends on the height aka length of the longest word
+###Implement a trie data structure in Java
 
 spelling.SpellingSuggest.java
 spelling.AutoComplete.java

@@ -10,9 +10,12 @@ public class DictionaryLL implements Dictionary
 {
 
 	private LinkedList<String> dict;
+	private int size = 0;
 	
     // TODO: Add a constructor
-
+	public DictionaryLL(){
+		dict = new LinkedList<>();
+	}
 
     /** Add this word to the dictionary.  Convert it to lowercase first
      * for the assignment requirements.
@@ -21,7 +24,15 @@ public class DictionaryLL implements Dictionary
      * (it wasn't already there). */
     public boolean addWord(String word) {
     	// TODO: Implement this method
-        return false;
+        
+    	if (!this.isWord(word)){
+    		dict.add(word.toLowerCase());
+    		size++;
+        	return true;
+    	} else {
+    		return false;
+    	}
+    	
     }
 
 
@@ -29,13 +40,21 @@ public class DictionaryLL implements Dictionary
     public int size()
     {
         // TODO: Implement this method
-        return 0;
+        
+    	return size;
     }
 
     /** Is this a word according to this dictionary? */
     public boolean isWord(String s) {
         //TODO: Implement this method
-        return false;
+        
+    	/*for (String word: dict){
+        	if (s.toLowerCase().equals(word.toLowerCase())){
+        		return true;
+        	}
+        }*/
+    	
+    	return dict.contains(s.toLowerCase());
     }
 
     
