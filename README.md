@@ -202,6 +202,22 @@ spelling.AutoCompleteDictionaryTrie.java
 spelling.TrieNode.java
 
 ## Week 5 : Hash Maps and Edit Distance
+###Describe why hash tables are valuable
+	If index for an array is known, could immediately look up the data
+	hash table idea: if I want to add something into an array, could i find a way to translate it into an index?
+	take a key (data in array) and convert it into an index - hash function - creates hash code
+	How to make a hash function that works well
+	
+###Describe the role of a hash function
+	maps a key, i.e the data to a particular location in the hash table
+	It should minimize collisions
+###Describe alternative methods for handling collisions in a Hash Table
+###Identify other challenges associated with Hash Tables
+###Explain the difference between a Hash Set and a Hash Map
+###Describe a detailed algorithm for generating spelling suggestions for misspelled words
+###Define the notion of edit distance
+###Describe a naïve algorithm for calculating the edit distance between two strings
+###Describe how pruning can be used to reduce the problem space
 
 spelling.WordPath.java
 spelling.NearbyWords.java
